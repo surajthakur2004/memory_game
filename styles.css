@@ -1,0 +1,119 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body{
+  display: flex;
+  /* justify-content: space-around; */
+  /* align-items: center; */
+  height: 100vh;
+  width: 100vw;
+  background: #000;
+  /* background-color: #66c649; */
+  background-color: #000000;
+}
+
+h1{
+  position: absolute;
+  top: 50px;
+  right: 80px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 60px;
+  text-decoration: underline;
+  /* color: rgb(108, 29, 235); */
+  color: white;
+}
+
+.container{
+  width: 100vw;
+  /* border: 2px solid red; */
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+  display:flex;
+  
+  /* background: #66c649; */
+
+}
+
+
+.boxes-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  padding: 20px 0px;
+}
+.box {
+  height: 120px;
+  width: 120px;
+  border: 2px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d; 
+  transform: rotateY(0deg); 
+  transition: transform 0.6s;
+}
+
+.box.flipped {
+  transform: rotateY(180deg); /* Rotate the card when flipped */
+}
+
+.box .front, .box .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.box .front {
+  background-color: green;
+  color: #fff;
+  border-radius: 9px;
+}
+
+.box .back {
+  border-radius: 9px;
+  background-color: #f4f4f43f;
+  color: #fff;
+  transform: rotateY(180deg); /* Rotate the back side to be hidden initially */
+}
+
+@keyframes shrinkAndBounce {
+  0% {
+      transform: scale(1) translateY(0);
+  }
+  50% {
+      transform: scale(0.5) translateY(-20px);
+  }
+  100% {
+      transform: scale(0) translateY(0);
+  }
+}
+
+.shrink {
+  animation: shrinkAndBounce 0.5s forwards;
+}
+
+.btn{
+  all: unset;
+  cursor: pointer;
+  height: 40px;
+  width: 200px;
+  border-radius: 10px;
+  background-color: rgb(15, 77, 148);
+  font-size: x-large;
+  font-weight: 500;
+}
+
+::selection
+{
+  background-color: aqua;
+}
